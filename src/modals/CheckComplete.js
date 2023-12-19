@@ -1,6 +1,8 @@
 import { Button } from 'reactstrap';
+import { useTodoContext } from './ToDoContext';
 
-function CheckComplete({ isCompleteScreen, setIsCompleteScreen }) {
+function CheckComplete() {
+    const { isCompleteScreen, setIsCompleteScreen } = useTodoContext();
     return (
         <div style={{ margin: '16px 0' }}>
             <Button

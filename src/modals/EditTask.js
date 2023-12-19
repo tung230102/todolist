@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify';
 
 import { notifyUpdate, notifyUpdateErr } from './Logger';
 
-const EditTaskPopup = ({ modal, toggle, updateTask, taskObj }) => {
+const EditTask = ({ modal, toggle, taskObj, updateTask }) => {
     const [taskName, setTaskName] = useState('');
     const [description, setDescription] = useState('');
 
@@ -14,7 +14,7 @@ const EditTaskPopup = ({ modal, toggle, updateTask, taskObj }) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const handleUpdate = () => {
+    const handleUpdateTask = () => {
         const updatedTask = {
             name: taskName,
             description: description,
@@ -55,7 +55,7 @@ const EditTaskPopup = ({ modal, toggle, updateTask, taskObj }) => {
                 </div>
             </ModalBody>
             <ModalFooter>
-                <Button color="primary" onClick={handleUpdate}>
+                <Button color="primary" onClick={handleUpdateTask}>
                     Update
                 </Button>
                 <Button color="secondary" onClick={cancelUpdate}>
@@ -67,4 +67,4 @@ const EditTaskPopup = ({ modal, toggle, updateTask, taskObj }) => {
     );
 };
 
-export default EditTaskPopup;
+export default EditTask;

@@ -5,9 +5,10 @@
 /.pnp
 .pnp.js
 /.vscode
-.prettierrc
 .babelrc
-.jsconfig.json
+.prettierrc
+config-overrides.js
+jsconfig.json
 # testing
 /coverage
 

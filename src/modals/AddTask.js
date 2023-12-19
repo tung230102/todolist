@@ -3,15 +3,17 @@ import { Button, Form, Row, Col, Input } from 'reactstrap';
 import { ToastContainer } from 'react-toastify';
 
 import { notifyAdd, notifyAddErr } from './Logger';
+import { useTodoContext } from './ToDoContext';
 
-function AddTask({ onSubmit }) {
+function AddTask() {
+    const { handleSubmit } = useTodoContext();
     const [taskName, setTaskName] = useState('');
     const [description, setDescription] = useState('');
     const inputRef = useRef();
 
-    const handleSubmit = () => {
+    const handleAddTask = () => {
         if (taskName.trim() && description.trim()) {
-            onSubmit(taskName, description);
+            handleSubmit(taskName, description);
             setTaskName('');
             setDescription('');
             notifyAdd();
@@ -42,7 +44,7 @@ function AddTask({ onSubmit }) {
                     />
                 </Col>
                 <Col md={2} style={{ marginTop: 10 }}>
-                    <Button color="primary" block onClick={handleSubmit}>
+                    <Button color="primary" block onClick={handleAddTask}>
                         Submit
                     </Button>
                     <ToastContainer />
